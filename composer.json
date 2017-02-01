@@ -10,7 +10,7 @@
     ],
         "autoload": {
         "psr-4": {
-            "QuanKim\\LaravelDynamoDBMigrations": "src/"
+            "QuanKim\\LaravelDynamoDBMigrations\\": "src/"
         }
     },
     "minimum-stability": "dev",
