@@ -15,10 +15,11 @@ class DBClient
     public static function factory()
     {
         return DynamoDbClient::factory([
-            'endpoint' => config('aws.endpoint'),
-            'region' => config('aws.region'),
-            'version' => config('aws.version'),
-            'credentials' => config('aws.credentials'),
-        ]);
+            'endpoint' =>  env('DYNAMODB_LOCAL_ENDPOINT'),
+            'region' => env('DYNAMODB_REGION'),
+            'version' => env('DYNAMODB_VERSION'), //for ex 'latest'
+            'credentials' => env('DYNAMODB_CREDENTIALS'), // ['key' => 'test key' , 'secre' => 'test secret']
+         ]);
+        
     }
 }
