@@ -2,6 +2,7 @@
 namespace QuanKim\LaravelDynamoDBMigrations\Commands;
 
 use Illuminate\Filesystem\Filesystem;
+use QuanKim\LaravelDynamoDBMigrations\DBClient;
 
 class Migrate extends BaseCommand
 {
