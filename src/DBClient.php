@@ -18,7 +18,7 @@ class DBClient
             'endpoint' =>  env('DYNAMODB_LOCAL_ENDPOINT'),
             'region' => env('DYNAMODB_REGION'),
             'version' => env('DYNAMODB_VERSION'), //for ex 'latest'
-            'credentials' => env('DYNAMODB_CREDENTIALS'), // ['key' => 'test key' , 'secre' => 'test secret']
+            'credentials' => ['key' => env('DYNAMODB_KEY') , 'secret' => env('DYNAMODB_SECRET') ]
          ]);
         
     }
