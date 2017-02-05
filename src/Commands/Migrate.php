@@ -10,7 +10,7 @@ class Migrate extends BaseCommand
      *
      * @var string
      */
-    protected $signature = 'dynamodb:migrate';
+    protected $signature = 'dynamodb:migrate {--port=}';
 
     /**
      * The console command description.
@@ -39,6 +39,12 @@ class Migrate extends BaseCommand
      */
     public function handle()
     {
+        $endPoint = parse_url(env('DYNAMODB_LOCAL_ENDPOINT'));
+
+        $this->option('port') ? $endPoint['port'] = $this->option('port') : false;
+        
+        $this->dbClient = DBClient::factory('http://'.$endPoint['host'].':'.$endPoint['port']);
+
         $migrationsPath = database_path() . '/migrations/dynamodb';
         $allMigrationsFile = $this->getAllMigrationsFile($migrationsPath);
         $migrationsData = $this->getMigrationsData();
